@@ -1,9 +1,11 @@
-/// <reference types="chai" />
+import chai from "chai";
 
-declare namespace NodeJS {
-  interface Global {
-    expect: Chai.ExpectStatic;
+declare global {
+  namespace NodeJS {
+    interface Global {
+      expect: typeof chai.expect;
+    }
   }
-}
 
-declare const expect: Chai.ExpectStatic;
+  const expect: typeof chai.expect;
+}
